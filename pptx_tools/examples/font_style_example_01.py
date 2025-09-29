@@ -22,30 +22,30 @@ def run(save_dir: str):
     pp = PPTXCreator(TemplateExample())
 
     # default language and paragraph-type for all created PPTXFontStyle instances:
-    PPTXFontStyle.lanaguage_id = MSO_LANGUAGE_ID.ENGLISH_UK
-    PPTXFontStyle.name = "Roboto"
+    PPTXFontStyle.lanaguage_id = MSO_LANGUAGE_ID.SIMPLIFIED_CHINESE
+    PPTXFontStyle.name = "Arial"  #"微软雅黑"
 
-    title_slide = pp.add_title_slide("Font style example presentation")
+    title_slide = pp.add_title_slide("字体样式示例演示文稿")
     font = font_title()  # returns a PPTXFontStyle instance with bold paragraph and size = 32 Pt
     font.write_shape(title_slide.shapes.title)  # change paragraph attributes for all paragraphs in shape
 
-    text_01 = "This text has four paragraphs. This is the first.\n" \
-              "Das ist der zweite ...\n" \
-              "... the third ...\n" \
-              "... and the last."
+    text_01 = "本文共有四个段落，这是第一段.\n" \
+              "这是第二个 ...\n" \
+              "... 接下来是第三部分 ...\n" \
+              "... 以及最后一个."
 
     my_font = PPTXFontStyle()
     my_font.size = 16
     text_shape_01 = pp.add_text_box(title_slide, text_01, PPTXPosition(0.02, 0.24), my_font)
 
-    my_font.set(size=22, bold=True, language_id=MSO_LANGUAGE_ID.GERMAN,
+    my_font.set(size=22, bold=True, language_id=MSO_LANGUAGE_ID.SIMPLIFIED_CHINESE,
                 strikethrough=TEXT_STRIKE_VALUES.SingleStrike,
                 caps=TEXT_CAPS_VALUES.All)
 
     my_font.write_paragraph(text_shape_01.text_frame.paragraphs[1])
 
-    my_font.set(size=18, bold=False, italic=True, name="Vivaldi",
-                language_id=MSO_LANGUAGE_ID.ENGLISH_UK,
+    my_font.set(size=18, bold=False, italic=True, name="Microsoft YaHei",
+                language_id=MSO_LANGUAGE_ID.SIMPLIFIED_CHINESE,
                 underline=MSO_TEXT_UNDERLINE_TYPE.WAVY_DOUBLE_LINE,
                 color_rgb=(255, 0, 0),
                 strikethrough=None,
@@ -65,7 +65,7 @@ def run(save_dir: str):
 
     my_font.write_paragraph(text_shape_01.text_frame.paragraphs[3])
 
-    text_02 = "This text uses copied paragraph."
+    text_02 = "该文本通过复制段落生成."
 
     my_copied_font = PPTXFontStyle()
     my_copied_font.read_font(text_shape_01.text_frame.paragraphs[1].font)

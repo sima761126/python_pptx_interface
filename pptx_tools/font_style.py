@@ -25,8 +25,8 @@ class PPTXFontStyle:
     of one paragraph to another is missing.
     """
     # default language and paragraph; no _USE_DEFAULT for language_id -> use MSO_LANGUAGE_ID.NONE
-    language_id: Union[MSO_LANGUAGE_ID, _USE_DEFAULT, None] = MSO_LANGUAGE_ID.ENGLISH_UK  # MSO_LANGUAGE_ID.GERMAN
-    name: Union[str, _USE_DEFAULT, None] = "Roboto"  # "Arial"  # "Arial Narrow"
+    language_id: Union[MSO_LANGUAGE_ID, _USE_DEFAULT, None] = MSO_LANGUAGE_ID.SIMPLIFIED_CHINESE  # MSO_LANGUAGE_ID.GERMAN
+    name: Union[str, _USE_DEFAULT, None] = "Microsoft YaHei"  # "Arial"  # "Arial Narrow"
 
     def __init__(self):
         #  If set to use_default(), the bold, italic ... setting is cleared and is inherited
